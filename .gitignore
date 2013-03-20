@@ -10,7 +10,9 @@
 
 # generated files
 bin/
+target/
 gen/
+gen-external-apklibs/
 build.xml
 
 # Local configuration file (sdk path, etc)
