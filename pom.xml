@@ -11,6 +11,10 @@
     <name>Example</name>
 
     <dependencies>
+    
+        <!--!!! Attention !!!-->
+        <!--Should be commented if Robolectric is used
+            See more info at Robolectric dependency-->
         <dependency>
             <groupId>com.google.android</groupId>
             <artifactId>android</artifactId>
@@ -33,6 +37,14 @@
             <version>2.0</version>
         </dependency>
 
+        <!--Dependencies for Tests-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.8.2</version>
+            <scope>test</scope>
+        </dependency>
+
         <!--Dependencies for Robolectric-->
         <dependency>
             <groupId>com.pivotallabs</groupId>
@@ -41,12 +53,26 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.8.2</version>
-            <scope>test</scope>
+        <!--!!! Attention !!!-->
+        <!--Robolectric requires com.google.android.maps to work without warnings
+        <!--It is lacking from MavenRepos, so You will have to use local repo
+        <!--To put Android SDK into local repository use Maven Android SDK Deployer
+        <!--https://github.com/mosabua/maven-android-sdk-deployer/#readme
+        <!--if Robolectric isn't required comment following dependencies and uncomment com.google.android-->
+        
+        <!--<dependency>
+            <groupId>android</groupId>
+            <artifactId>android</artifactId>
+            <version>4.0_r3</version>
+            <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.google.android.maps</groupId>
+            <artifactId>maps</artifactId>
+            <version>4_r2</version>
+            <scope>provided</scope>
+        </dependency>-->
 
     </dependencies>
     <build>
