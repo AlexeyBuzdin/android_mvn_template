@@ -1,3 +1,5 @@
+package lv.buzdin.alex.example;
+
 import com.xtremelabs.robolectric.RobolectricTestRunner;
 import lv.buzdin.alex.example.MyActivity;
 import lv.buzdin.alex.example.R;
@@ -7,7 +9,7 @@ import org.junit.runner.RunWith;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
-@RunWith(RobolectricTestRunner.class)
+@RunWith(MocksInjectingTestRunner.class)
 public class MyActivityTest {
 
     @Test
