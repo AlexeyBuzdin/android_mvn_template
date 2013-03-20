@@ -55,10 +55,10 @@
 
         <!--!!! Attention !!!-->
         <!--Robolectric requires com.google.android.maps to work without warnings
-        <!--It is lacking from MavenRepos, so You will have to use local repo
-        <!--To put Android SDK into local repository use Maven Android SDK Deployer
-        <!--https://github.com/mosabua/maven-android-sdk-deployer/#readme
-        <!--if Robolectric isn't required comment following dependencies and uncomment com.google.android-->
+            It is lacking from MavenRepos, so You will have to use local repo
+            To put Android SDK into local repository use Maven Android SDK Deployer
+            https://github.com/mosabua/maven-android-sdk-deployer/#readme
+            if Robolectric isn't required comment following dependencies and uncomment com.google.android-->
         
         <!--<dependency>
             <groupId>android</groupId>
