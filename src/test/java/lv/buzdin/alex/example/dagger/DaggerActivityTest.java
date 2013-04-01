@@ -1,7 +1,6 @@
-package lv.buzdin.alex.example;
+package lv.buzdin.alex.example.dagger;
 
-import com.xtremelabs.robolectric.RobolectricTestRunner;
-import lv.buzdin.alex.example.MyActivity;
+import lv.buzdin.alex.example.MocksInjectingTestRunner;
 import lv.buzdin.alex.example.R;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,11 +9,11 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
 @RunWith(MocksInjectingTestRunner.class)
-public class MyActivityTest {
+public class DaggerActivityTest {
 
     @Test
     public void shouldHaveHappySmiles() throws Exception {
-        String appName = new MyActivity().getResources().getString(R.string.app_name);
+        String appName = new DaggerActivity().getResources().getString(R.string.app_name);
         assertThat(appName, equalTo("android_mvn_template"));
     }
 }
