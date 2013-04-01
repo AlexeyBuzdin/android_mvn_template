@@ -10,7 +10,7 @@ public class RoboGuiceStringProvider {
     Context context;
 
     @Inject
-    public RoboGuiceStringProvider(DaggerActivity context) {
+    public RoboGuiceStringProvider(Context context) {
         this.context = context;
     }
 

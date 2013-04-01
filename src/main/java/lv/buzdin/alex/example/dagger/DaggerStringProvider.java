@@ -18,4 +18,5 @@ public class DaggerStringProvider {
     public String getString(){
         return context.getString(R.string.app_name);
     }
+
 }
