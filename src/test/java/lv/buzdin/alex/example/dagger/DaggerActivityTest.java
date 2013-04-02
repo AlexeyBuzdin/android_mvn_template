@@ -6,16 +6,14 @@ import com.xtremelabs.robolectric.RobolectricTestRunner;
 import dagger.Module;
 import dagger.ObjectGraph;
 import dagger.Provides;
-import lv.buzdin.alex.example.MocksInjectingTestRunner;
 import lv.buzdin.alex.example.R;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
 
 import static com.xtremelabs.robolectric.Robolectric.shadowOf;
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -23,15 +21,24 @@ import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+@Module(
+        includes = {DaggerModule.class },
+        overrides = true,
+        entryPoints = {DaggerActivityTest.class}
+)
 @RunWith(RobolectricTestRunner.class)
 public class DaggerActivityTest {
 
     @Inject
     DaggerActivity activity;
 
+    @Mock
+    DaggerStringProvider stringProvider;
+
     @Before
     public void setUp() throws Exception {
-        ObjectGraph.create(new DaggerModule(Robolectric.application), new ServiceTestModule()).inject(this);
+        MockitoAnnotations.initMocks(this);
+        ObjectGraph.create(new DaggerModule(Robolectric.application), this).inject(this);
     }
 
     @Test
@@ -41,26 +48,18 @@ public class DaggerActivityTest {
     }
 
     @Test
-    public void shouldInjectStringProvider() throws Exception {
-        when(activity.stringProvider.getString()).thenReturn("Injected");
+    public void shouldSetTextViewValue() throws Exception {
+        when(stringProvider.getString()).thenReturn("Injected");
 
-        shadowOf(activity).callOnCreate(null);
+        activity.onCreate(null);
         TextView textView = (TextView) activity.findViewById(R.id.textView);
 
         assertThat(textView.getText().toString(), equalTo("Injected"));
     }
 
-    @Module(
-            includes = {DaggerModule.class },
-            overrides = true,
-            entryPoints = {DaggerActivity.class, DaggerActivityTest.class}
-    )
-    static class ServiceTestModule {
-
-        @Provides
-        DaggerStringProvider provideDaggerStringProvider(){
-            return mock(DaggerStringProvider.class);
-        }
+    @Provides
+    DaggerStringProvider provideDaggerStringProvider(){
+        return stringProvider;
     }
 
 }

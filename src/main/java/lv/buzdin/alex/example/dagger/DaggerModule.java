@@ -30,8 +30,4 @@ public class DaggerModule {
         return appContext;
     }
 
-    @Provides @Singleton
-    LocationManager provideLocationManager() {
-        return (LocationManager) appContext.getSystemService(Context.LOCATION_SERVICE);
-    }
 }

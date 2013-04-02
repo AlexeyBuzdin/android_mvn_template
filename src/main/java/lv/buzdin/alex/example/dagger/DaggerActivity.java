@@ -11,6 +11,7 @@ import javax.inject.Inject;
 public class DaggerActivity extends DaggerBaseActivity {
 
     @Inject DaggerStringProvider stringProvider;
+
     @InjectView(R.id.textView) TextView textView;
 
     @Override
