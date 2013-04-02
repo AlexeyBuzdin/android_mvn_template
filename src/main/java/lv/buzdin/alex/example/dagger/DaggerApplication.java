@@ -5,7 +5,7 @@ import dagger.ObjectGraph;
 
 public class DaggerApplication extends Application {
 
-    private ObjectGraph objectGraph;
+    private static ObjectGraph objectGraph;
 
     @Override public void onCreate() {
         super.onCreate();
@@ -13,7 +13,7 @@ public class DaggerApplication extends Application {
         objectGraph = ObjectGraph.create(new DaggerModule(this));
     }
 
-    public ObjectGraph objectGraph() {
-        return objectGraph;
+    public static <T> void inject(T instance) {
+        if(objectGraph != null) objectGraph.inject(instance);
     }
 }

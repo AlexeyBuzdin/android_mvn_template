@@ -7,20 +7,20 @@
     <!--android:theme is required only if ActionBarSherlock is to be used-->
     <application android:label="@string/app_name"
                  android:theme="@style/Theme.Sherlock"
-                 ><!--android:name=".dagger.DaggerApplication"-->
-        <!--<activity android:name=".dagger.DaggerActivity"-->
-                  <!--android:label="@string/app_name">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
-            <!--</intent-filter>-->
-        <!--</activity>-->
-        <activity android:name=".roboguice.RoboGuiceActivity"
+                 android:name=".dagger.DaggerApplication">
+        <activity android:name=".dagger.DaggerActivity"
                   android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <!--<activity android:name=".roboguice.RoboGuiceActivity"-->
+                  <!--android:label="@string/app_name">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
     </application>
 </manifest> 

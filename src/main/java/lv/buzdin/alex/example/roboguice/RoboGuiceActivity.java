@@ -12,6 +12,7 @@ public class RoboGuiceActivity extends RoboActivity {
     int i;
 
     @Inject RoboGuiceStringProvider stringProvider;
+
     @InjectView(R.id.textView) TextView textView;
 
     @Override
@@ -21,6 +22,10 @@ public class RoboGuiceActivity extends RoboActivity {
 
         i = 1;
         textView.setText(stringProvider.getString());
+    }
+
+    public int getI(){
+        return i;
     }
 
 }

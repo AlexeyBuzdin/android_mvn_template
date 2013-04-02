@@ -10,14 +10,15 @@ import javax.inject.Singleton;
 
 @Module(
         entryPoints = {
-                DaggerActivity.class,
+                DaggerApplication.class,
+                DaggerActivity.class
         }
 )
 public class DaggerModule {
     private final Context appContext;
 
     public DaggerModule(Context appContext) {
-        this.appContext = appContext;
+        this.appContext = appContext.getApplicationContext();
     }
 
     @Provides @Singleton

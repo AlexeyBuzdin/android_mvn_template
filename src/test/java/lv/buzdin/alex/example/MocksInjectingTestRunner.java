@@ -49,21 +49,4 @@ public class MocksInjectingTestRunner extends RobolectricRoboTestRunner {
 
         RoboGuice.injectMembers(Robolectric.application, test);
     }
-
-    public static class MyRoboModule extends AbstractModule {
-
-        private List<Object> mocksToInject;
-
-        public MyRoboModule(List<Object> mocksToInject) {
-            this.mocksToInject = mocksToInject;
-        }
-
-        @Override
-        protected void configure() {
-            for (final Object mock : mocksToInject) {
-                Class clazz = mock.getClass();
-                bind(clazz.getSuperclass()).toInstance(mock);
-            }
-        }
-    }
 }

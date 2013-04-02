@@ -16,7 +16,7 @@ public class DaggerBaseActivity extends Activity {
 
         // Android constructs Activity instances so we must find the ObjectGraph
         // instance and inject this.
-        ((DaggerApplication) getApplication()).objectGraph().inject(this);
+        DaggerApplication.inject(this);
     }
 
     @Override protected void onResume() {
