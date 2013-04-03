@@ -6,7 +6,7 @@
 * Mockito
 * ActionBarSherlock
 
-##### Instalation: 
+##### Installation: 
 1. Download required Android SDK through SDK Manager
  
 ###### (Optional):
