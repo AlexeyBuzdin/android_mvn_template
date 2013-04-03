@@ -9,7 +9,7 @@
 ##### Instalation: 
 1. Download required Android SDK through SDK Manager
  
-#### (Optional):
+###### (Optional):
 1. Download https://github.com/mosabua/maven-android-sdk-deployer/#readme
 2. Uncomment Android and Android maps dependency in Robolectric section
 3. Comment com.google.android dependency
